@@ -1,4 +1,5 @@
 import css from "./Contact.module.css";
+
 const Contact = ({ data, onDelete }) => {
   return (
     <div className={css.userBox}>

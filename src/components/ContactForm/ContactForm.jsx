@@ -1,7 +1,7 @@
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { ErrorMessage } from "formik";
-import { FORM_INITIAL_VALUES, phoneRegExp } from "../utils/const";
+import { FORM_INITIAL_VALUES, phoneRegExp } from "../../utils/const";
 import css from "./ContactForm.module.css";
 
 const ContactForm = ({ onAdd }) => {
