@@ -1,0 +1,37 @@
+.contactForm {
+  display: flex;
+  justify-content: center;
+  align-items: last baseline;
+  gap: 16px;
+}
+
+.formItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputName {
+  color: #ffffffd8;
+}
+
+.formInput {
+  background-color: transparent;
+  border: 1px #ffffffd8 solid;
+  border-radius: 4px;
+  padding: 4px 8px;
+  color: #ffffffd8;
+}
+
+.formErr {
+  color: rgb(240, 51, 13);
+  text-align: start;
+}
+
+.formBtn {
+  display: flex;
+  align-self: flex-end;
+  align-items: center;
+  width: auto;
+  height: 50px;
+  margin: 0;
+}

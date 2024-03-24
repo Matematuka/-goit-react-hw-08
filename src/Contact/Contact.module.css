@@ -1,0 +1,24 @@
+.userBox {
+  display: flex;
+  gap: 32px;
+  border: 1px solid #94e9b9;
+  border-radius: 4px;
+  width: 250px;
+  color: #ffffffd8;
+  padding-right: 8px;
+}
+.userContact {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+}
+
+button {
+  border-color: rgb(208, 193, 175);
+  align-self: center;
+  padding: 4px 8px;
+  margin-left: auto;
+  background-color: transparent;
+  color: #0cdbde;
+  cursor: pointer;
+}

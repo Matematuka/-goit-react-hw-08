@@ -1,0 +1,13 @@
+.searchBox {
+  padding: 16px 16px 16px 0;
+  text-align: center;
+}
+
+.searchField {
+  background-color: transparent;
+  color: #ffffffd8;
+  border: 1px #94e9b9 solid;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
