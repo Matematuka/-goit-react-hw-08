@@ -13,12 +13,7 @@ const Contact = ({ id, name, number }) => {
         <li>{name}</li>
         <li>{number}</li>
       </ul>
-      <button
-        onClick={() => {
-          onDelete(id);
-        }}
-        type="button"
-      >
+      <button onClick={() => onDelete(id)} type="button">
         Delete
       </button>
     </div>
