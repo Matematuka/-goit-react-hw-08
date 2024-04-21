@@ -4,7 +4,7 @@ import { FORM_INITIAL_VALUES, phoneRegExp } from "../../utils/const";
 import css from "./ContactForm.module.css";
 import { nanoid } from "nanoid";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contactsSlice.js";
+import { addContact } from "../../redux/contactsOps";
 
 const ContactForm = () => {
   const dispatch = useDispatch();

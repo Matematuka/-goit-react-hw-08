@@ -9,6 +9,7 @@ import {
   selectisError,
   selectisLoading,
 } from "./redux/selectors";
+import Loader from "./components/Loader/Loader";
 
 function App() {
   const dispatch = useDispatch();
@@ -16,14 +17,20 @@ function App() {
   const error = useSelector(selectisError);
   const loading = useSelector(selectisLoading);
   useEffect(() => {
-    dispatch(fetchContacts);
+    dispatch(fetchContacts());
   }, [dispatch]);
   return (
     <div>
       <h1>Phonebook</h1>
       <ContactForm />
       <SearchBox />
-      {<ContactList />}
+      <Loader loading={loading} />
+      {contacts.length !== 0 ? (
+        <ContactList />
+      ) : (
+        <p>You have no any contacts yet</p>
+      )}
+      {error && <p>Oooops... something went wrong. Try reloading the page</p>}
     </div>
   );
 }
