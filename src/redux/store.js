@@ -20,6 +20,12 @@ const authPersistConfig = {
   whitelist: ["token"],
 };
 
+// const contactsPersistConfig = {
+//   key: "phonebook",
+//   storage,
+//   whitelist: ["items"],
+// };
+
 export const store = configureStore({
   reducer: {
     contacts: contactsReducer,

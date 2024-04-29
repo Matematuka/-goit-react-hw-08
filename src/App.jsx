@@ -1,19 +1,9 @@
 import { Suspense, useEffect } from "react";
-// import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
-// import ContactForm from "./components/ContactForm/ContactForm";
-// import ContactList from "./components/ContactList/ContactList";
-// import SearchBox from "./components/SearchBox/SearchBox";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegistationPage from "./pages/RegistrationPage/RegistrationPage";
 import ContactsPage from "./pages/ContactsPage/ContactsPage";
-// import { fetchContacts } from "./redux/contactsOps";
-// import {
-//   selectContacts,
-//   selectisError,
-//   selectisLoading,
-// } from "./redux/selectors";
 import Loader from "./components/Loader/Loader";
 import NotFound from "./pages/NotFound/NotFound";
 import Layout from "./components/Layout/Layout";
@@ -24,9 +14,7 @@ import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 function App() {
   const dispatch = useDispatch();
-  // const contacts = useSelector(selectContacts);
-  // const error = useSelector(selectisError);
-  // const loading = useSelector(selectisLoading);
+
   useEffect(() => {
     dispatch(apiRefresh());
   }, [dispatch]);

@@ -29,7 +29,6 @@
 
 .formBtn {
   display: flex;
-  align-self: flex-end;
   align-items: center;
   width: auto;
   height: 50px;

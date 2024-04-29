@@ -3,12 +3,27 @@
   line-height: 1.5;
   font-weight: 400;
 }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 body {
   font-family: sans-serif;
   line-height: 1.5;
-  background-color: rgb(37, 36, 36);
-  margin-left: 20px;
+  min-height: 200px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  background-color: #2a2a2a;
+  background-image: url(https://cdn.pixabay.com/photo/2020/07/06/01/33/forest-5375005_1280.jpg);
+  background-repeat: no-repeat;
+  color: #fff;
+  text-align: center;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
 }
 
 h1,

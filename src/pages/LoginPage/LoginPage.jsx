@@ -3,6 +3,8 @@ import * as Yup from "yup";
 import { MIN_CHAR_PASSWORD_VALIDATION } from "../../utils/const";
 import { useDispatch } from "react-redux";
 import { apiLogin } from "../../redux/auth/operations";
+import css from "./LoginPage.module.css";
+import { useState } from "react";
 // import { useDispatch } from "react-redux";
 
 const FORM_INITIAL_VALUES = {
@@ -12,6 +14,7 @@ const FORM_INITIAL_VALUES = {
 
 const LoginPage = () => {
   const dispatch = useDispatch();
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (values, actions) => {
     dispatch(apiLogin(values));
@@ -32,7 +35,7 @@ const LoginPage = () => {
   });
 
   return (
-    <div>
+    <div className={css.container}>
       <Formik
         initialValues={FORM_INITIAL_VALUES}
         onSubmit={handleSubmit}
@@ -42,15 +45,30 @@ const LoginPage = () => {
           <label>
             <span>Email</span>
             <Field type="text" name="email" placeholder="colt@gmail.com" />
-            <ErrorMessage name="email" component="p" />
+            <ErrorMessage className={css.error} name="email" component="p" />
           </label>
           <br />
           <label>
             <span>Password</span>
-            <Field type="password" name="password" placeholder="*******" />
-            <ErrorMessage name="password" component="p" />
+            <div className={css.passwordField}>
+              <Field
+                type={showPassword ? "text" : "password"}
+                name="password"
+                placeholder="*******"
+              />
+              <button
+                className={css.showPasswordButton}
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? "Hide" : "Show"}
+              </button>
+            </div>
+            <ErrorMessage className={css.error} name="password" component="p" />
           </label>
-          <button type="submit">Login</button>
+          <button className={css.loginBtn} type="submit">
+            Login
+          </button>
         </Form>
       </Formik>
     </div>

@@ -2,24 +2,15 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { FORM_INITIAL_VALUES, phoneRegExp } from "../../utils/const";
 import css from "./ContactForm.module.css";
-import { nanoid } from "nanoid";
+// import { nanoid } from "nanoid";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contacts/operations";
+import { apiAddContact } from "../../redux/contacts/operations";
 
 const ContactForm = () => {
   const dispatch = useDispatch();
 
-  const onAdd = (formData) => {
-    const newContact = {
-      ...formData,
-      id: nanoid(),
-    };
-    const action = addContact(newContact);
-    dispatch(action);
-  };
-
   const handleSubmit = (values, actions) => {
-    onAdd(values);
+    dispatch(apiAddContact(values));
     actions.resetForm();
   };
 
@@ -60,7 +51,9 @@ const ContactForm = () => {
           <ErrorMessage className={css.formErr} name="number" component="p" />
         </label>
         <button className={css.formBtn} type="submit">
-          Add Contact
+          Add
+          <br />
+          Contact
         </button>
       </Form>
     </Formik>
