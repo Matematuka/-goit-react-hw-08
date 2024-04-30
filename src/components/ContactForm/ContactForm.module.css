@@ -33,4 +33,9 @@
   width: auto;
   height: 50px;
   margin: 0;
+  border-radius: 5px;
+}
+
+.formBtn:hover {
+  color: blanchedalmond;
 }

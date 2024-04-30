@@ -4,6 +4,8 @@ import css from "./Layout.module.css";
 import { selectIsSignedIn, selectUserName } from "../../redux/auth/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { apiLogOut } from "../../redux/auth/operations";
+import { useState } from "react";
+import Modal from "../Modal/Modal";
 
 const getNavLinkClassName = ({ isActive }) =>
   clsx(css.navLink, {
@@ -12,8 +14,15 @@ const getNavLinkClassName = ({ isActive }) =>
 
 const Layout = ({ children }) => {
   const dispatch = useDispatch();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
   const onLogOut = () => {
     dispatch(apiLogOut());
+    setIsModalOpen(false);
   };
 
   const isSignedIn = useSelector(selectIsSignedIn);
@@ -30,10 +39,13 @@ const Layout = ({ children }) => {
               <NavLink className={getNavLinkClassName} to="/contacts">
                 Contacts
               </NavLink>
-              <div>
+              <div className={css.logOutBox}>
                 <span>Hello, {userName}</span>
-                <br />
-                <button type="button" onClick={onLogOut}>
+                <button
+                  className={css.logOutBtn}
+                  type="button"
+                  onClick={toggleModal}
+                >
                   LogOut
                 </button>
               </div>
@@ -54,6 +66,11 @@ const Layout = ({ children }) => {
         </nav>
       </header>
       <main>{children}</main>
+      <Modal
+        isOpen={isModalOpen} // Передаємо стан відкриття модального вікна як пропс
+        onCancel={toggleModal} // Передаємо функцію закриття модального вікна як пропс
+        onConfirm={onLogOut} // Передаємо функцію виходу користувача як пропс
+      />
     </div>
   );
 };

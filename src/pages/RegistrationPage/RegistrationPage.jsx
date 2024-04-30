@@ -6,7 +6,8 @@ import {
 } from "../../utils/const";
 import { apiRegistration } from "../../redux/auth/operations";
 import { useDispatch } from "react-redux";
-// import { useDispatch } from "react-redux";
+import css from "./RegistrationPage.module.css";
+import { useState } from "react";
 
 const FORM_INITIAL_VALUES = {
   name: "",
@@ -16,6 +17,8 @@ const FORM_INITIAL_VALUES = {
 
 const RegistrationPage = () => {
   const dispatch = useDispatch();
+
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (values, actions) => {
     dispatch(apiRegistration(values));
@@ -41,7 +44,7 @@ const RegistrationPage = () => {
   });
 
   return (
-    <div>
+    <div className={css.container}>
       <Formik
         initialValues={FORM_INITIAL_VALUES}
         onSubmit={handleSubmit}
@@ -51,21 +54,36 @@ const RegistrationPage = () => {
           <label>
             <span>Name</span>
             <Field type="text" name="name" placeholder="Enter your full Name" />
-            <ErrorMessage name="name" component="p" />
+            <ErrorMessage className={css.error} name="name" component="p" />
           </label>
           <br />
           <label>
             <span>Email</span>
             <Field type="text" name="email" placeholder="colt@gmail.com" />
-            <ErrorMessage name="email" component="p" />
+            <ErrorMessage className={css.error} name="email" component="p" />
           </label>
           <br />
           <label>
             <span>Password</span>
-            <Field type="password" name="password" placeholder="*******" />
-            <ErrorMessage name="password" component="p" />
+            <div className={css.passwordField}>
+              <Field
+                type={showPassword ? "text" : "password"}
+                name="password"
+                placeholder="*******"
+              />
+              <button
+                className={css.showPasswordButton}
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? "Hide" : "Show"}
+              </button>
+            </div>
+            <ErrorMessage className={css.error} name="password" component="p" />
           </label>
-          <button type="submit">Register</button>
+          <button className={css.registerBtn} type="submit">
+            Register
+          </button>
         </Form>
       </Formik>
     </div>

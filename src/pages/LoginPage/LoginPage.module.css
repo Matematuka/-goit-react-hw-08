@@ -1,6 +1,7 @@
 .container {
   max-width: 400px;
   margin: 0 auto;
+  margin-top: 70px;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -53,7 +54,7 @@ p.error {
 }
 
 .passwordField input {
-  width: calc(100% - 40px);
+  width: 100%;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -62,10 +63,11 @@ p.error {
 .showPasswordButton {
   position: absolute;
   right: 0;
-  background-color: transparent;
+  left: 80%;
+  background-color: #fff;
   border: none;
   cursor: pointer;
   font-size: 14px;
   color: #280770;
-  padding: 4px;
+  padding: 5px 2px 2px;
 }

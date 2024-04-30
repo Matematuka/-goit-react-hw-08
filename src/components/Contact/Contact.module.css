@@ -15,10 +15,15 @@
 
 button {
   border-color: rgb(208, 193, 175);
+  border-radius: 5px;
   align-self: center;
   padding: 4px 8px;
   margin-left: auto;
   background-color: transparent;
-  color: #0cdbde;
+  color: rgb(26, 196, 91);
   cursor: pointer;
+}
+
+button:hover {
+  color: blanchedalmond;
 }
