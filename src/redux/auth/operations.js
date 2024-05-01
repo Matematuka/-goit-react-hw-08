@@ -13,7 +13,7 @@ export const clearToken = () => {
   instance.defaults.headers.common.Authorization = "";
 };
 
-export const apiRegistration = createAsyncThunk(
+export const register = createAsyncThunk(
   "auth/register",
   async (formData, thunkAPI) => {
     try {
@@ -27,7 +27,7 @@ export const apiRegistration = createAsyncThunk(
   }
 );
 
-export const apiLogin = createAsyncThunk(
+export const login = createAsyncThunk(
   "auth/login",
   async (formData, thunkAPI) => {
     try {
@@ -41,21 +41,18 @@ export const apiLogin = createAsyncThunk(
   }
 );
 
-export const apiLogOut = createAsyncThunk(
-  "auth/logout",
-  async (_, thunkAPI) => {
-    try {
-      const { data } = await instance.post("/users/logout");
-      console.log(data);
-      clearToken();
-      return;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
+export const logout = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
+  try {
+    const { data } = await instance.post("/users/logout");
+    console.log(data);
+    clearToken();
+    return;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
   }
-);
+});
 
-export const apiRefresh = createAsyncThunk(
+export const refreshUser = createAsyncThunk(
   "auth/refresh",
   async (_, thunkAPI) => {
     try {

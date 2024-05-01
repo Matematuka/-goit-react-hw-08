@@ -1,0 +1,25 @@
+.userNav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logOutBox {
+  display: flex;
+  margin-left: auto;
+  gap: 20px;
+}
+
+span {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.logOutBtn {
+  border-radius: 5px;
+}
+
+.logOutBtn:hover {
+  color: blanchedalmond;
+  background-color: rgb(25, 26, 1);
+}

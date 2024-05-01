@@ -9,11 +9,12 @@ const ContactList = () => {
   return (
     <div>
       <ul className={css.container}>
-        {contacts.map(({ id, name, number }) => (
-          <li className={css.listItem} key={id}>
-            <Contact id={id} name={name} number={number} />
-          </li>
-        ))}
+        {Array.isArray(contacts) &&
+          contacts.map(({ id, name, number }) => (
+            <li className={css.listItem} key={id}>
+              <Contact id={id} name={name} number={number} />
+            </li>
+          ))}
       </ul>
     </div>
   );

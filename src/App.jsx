@@ -7,7 +7,7 @@ import ContactsPage from "./pages/ContactsPage/ContactsPage";
 import Loader from "./components/Loader/Loader";
 import NotFound from "./pages/NotFound/NotFound";
 import Layout from "./components/Layout/Layout";
-import { apiRefresh } from "./redux/auth/operations";
+import { refreshUser } from "./redux/auth/operations";
 import { useDispatch } from "react-redux";
 import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
@@ -16,7 +16,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(apiRefresh());
+    dispatch(refreshUser());
   }, [dispatch]);
   return (
     <Layout>

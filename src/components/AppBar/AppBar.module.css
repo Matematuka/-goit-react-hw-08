@@ -1,0 +1,38 @@
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navLink {
+  display: flex;
+  padding: 15px 20px;
+  font-weight: 600;
+  background-color: transparent;
+  color: rgb(250, 245, 245);
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.active {
+  background-color: rgba(34, 9, 31, 0.537);
+  color: rgb(26, 196, 91);
+}
+
+.logOutBox {
+  display: flex;
+  margin-left: auto;
+  gap: 20px;
+}
+
+span {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.logOutBtn {
+  border-radius: 5px;
+}
+
+.logOutBtn:hover {
+  color: blanchedalmond;
+  background-color: rgb(25, 26, 1);
+}
