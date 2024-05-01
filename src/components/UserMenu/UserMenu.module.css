@@ -16,10 +16,12 @@ span {
 }
 
 .logOutBtn {
+  background-color: transparent;
+  color: rgb(235, 242, 238);
   border-radius: 5px;
 }
 
 .logOutBtn:hover {
   color: blanchedalmond;
-  background-color: rgb(25, 26, 1);
+  background-color: rgba(34, 9, 31, 0.3);
 }
