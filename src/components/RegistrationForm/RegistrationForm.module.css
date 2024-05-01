@@ -1,4 +1,3 @@
-
 label {
   display: block;
   margin-bottom: 10px;
@@ -28,7 +27,7 @@ input {
   cursor: pointer;
 }
 
-.loginBtn:hover {
+.registerBtn:hover {
   background-color: #8902ae;
 }
 
