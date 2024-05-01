@@ -65,7 +65,7 @@ const contactsSlice = createSlice({
         state.error = false;
       })
       .addCase(logout.fulfilled, (state) => {
-        state.items = null;
+        state.items = [];
       })
       .addCase(logout.rejected, (state) => {
         state.loading = false;

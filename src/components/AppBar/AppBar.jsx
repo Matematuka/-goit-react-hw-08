@@ -13,7 +13,6 @@ const getNavLinkClassName = ({ isActive }) =>
 
 const AppBar = ({ toggleModal }) => {
   const isSignedIn = useSelector(selectIsLoggedIn);
-
   return (
     <header>
       <Navigation
