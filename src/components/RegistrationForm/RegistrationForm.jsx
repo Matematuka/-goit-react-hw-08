@@ -6,6 +6,8 @@ import {
 } from "../../utils/const";
 import css from "./RegistrationForm.module.css";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { register } from "../../redux/auth/operations";
 
 const FORM_INITIAL_VALUES = {
   name: "",
@@ -13,7 +15,8 @@ const FORM_INITIAL_VALUES = {
   password: "",
 };
 
-const RegistrationForm = ({ handleSubmit }) => {
+const RegistrationForm = () => {
+  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const RegistrationSchema = Yup.object().shape({
     name: Yup.string()
@@ -32,6 +35,11 @@ const RegistrationForm = ({ handleSubmit }) => {
         `The password must contain at least ${MIN_CHAR_PASSWORD_VALIDATION} characters!`
       ),
   });
+
+  const handleSubmit = (values, actions) => {
+    dispatch(register(values));
+    actions.resetForm();
+  };
 
   return (
     <>

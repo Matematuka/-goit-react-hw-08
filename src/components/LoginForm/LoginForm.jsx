@@ -3,13 +3,23 @@ import * as Yup from "yup";
 import { MIN_CHAR_PASSWORD_VALIDATION } from "../../utils/const";
 import css from "./LoginForm.module.css";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { login } from "../../redux/auth/operations";
 
 const FORM_INITIAL_VALUES = {
   email: "",
   password: "",
 };
-const LoginForm = ({ login }) => {
+const LoginForm = () => {
+  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
+
+  const handleSubmit = (values, actions) => {
+    dispatch(login(values));
+    console.log(values);
+    actions.resetForm();
+  };
+
   const RegistrationSchema = Yup.object().shape({
     email: Yup.string()
       .required("Email address is required!")
@@ -26,7 +36,7 @@ const LoginForm = ({ login }) => {
     <>
       <Formik
         initialValues={FORM_INITIAL_VALUES}
-        onSubmit={login}
+        onSubmit={handleSubmit}
         validationSchema={RegistrationSchema}
       >
         <Form>
