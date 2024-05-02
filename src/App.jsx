@@ -20,11 +20,10 @@ function App() {
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
-
+  if (isRefresh) return <Loader />;
   return (
     <Layout>
       <Suspense fallback={<Loader />}>
-        {isRefresh && <Loader />}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route

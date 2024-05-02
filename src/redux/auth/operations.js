@@ -58,6 +58,7 @@ export const refreshUser = createAsyncThunk(
     try {
       const state = thunkAPI.getState();
       const token = state.auth.token;
+      if (!token) return thunkAPI.rejectWithValue(null);
       setToken(token);
       const { data } = await instance.get("/users/current");
       console.log(data);
